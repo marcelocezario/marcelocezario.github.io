@@ -199,81 +199,149 @@ header.masthead .device-container .screen img {
   }
 }
 
-section.download {
+
+
+section.sobremim {
   position: relative;
   padding: 150px 0;
 }
 
-section.download h2 {
+section.sobremim h2 {
   font-size: 50px;
   margin-top: 0;
 }
 
-section.download .badges .badge-link {
+section.sobremim .badges .badge-link {
   display: block;
   margin-bottom: 25px;
 }
 
-section.download .badges .badge-link:last-child {
+section.sobremim .badges .badge-link:last-child {
   margin-bottom: 0;
 }
 
-section.download .badges .badge-link img {
+section.sobremim .badges .badge-link img {
   height: 60px;
 }
 
 @media (min-width: 768px) {
-  section.download .badges .badge-link {
+  section.sobremim .badges .badge-link {
     display: inline-block;
     margin-bottom: 0;
   }
 }
 
 @media (min-width: 768px) {
-  section.download h2 {
+  section.sobremim h2 {
     font-size: 70px;
+    color: white;
   }
 }
 
-section.features .section-heading {
-  margin-bottom: 100px;
+section.sobremim .sobremim-item {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  color: white;
 }
 
-section.features .section-heading h2 {
+section.sobremim .sobremim-item h3 {
+  font-size: 30px;
+  color: white;
+}
+
+section.sobremim .sobremim-item i {
+  font-size: 80px;
+  display: block;
+  margin-bottom: 15px;
+  background: -webkit-linear-gradient(to left, #7b4397, #dc2430);
+  background: linear-gradient(to left, #7b4397, #dc2430);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: white;
+}
+
+section.sobremim .section-item p {
+  margin-bottom: 0;
+  color: white;
+}
+
+
+section.repositorios {
+  position: relative;
+  padding: 150px 0;
+}
+
+section.repositorios h2 {
+  font-size: 50px;
   margin-top: 0;
 }
 
-section.features .section-heading p {
+section.repositorios .badges .badge-link {
+  display: block;
+  margin-bottom: 25px;
+}
+
+section.repositorios .badges .badge-link:last-child {
   margin-bottom: 0;
 }
 
-section.features .device-container,
-section.features .feature-item {
-  max-width: 325px;
-  margin: 0 auto;
+section.repositorios .badges .badge-link img {
+  height: 60px;
 }
 
-section.features .device-container {
-  margin-bottom: 100px;
-}
-
-@media (min-width: 992px) {
-  section.features .device-container {
+@media (min-width: 768px) {
+  section.repositorios .badges .badge-link {
+    display: inline-block;
     margin-bottom: 0;
   }
 }
 
-section.features .feature-item {
+@media (min-width: 768px) {
+  section.repositorios h2 {
+    font-size: 70px;
+  }
+}
+
+section.profissional .section-heading {
+  margin-bottom: 100px;
+}
+
+section.profissional .section-heading h2 {
+  margin-top: 0;
+}
+
+section.profissional .section-heading p {
+  margin-bottom: 0;
+}
+
+section.profissional .device-container,
+section.profissional .profissional-item {
+  max-width: 325px;
+  margin: 0 auto;
+}
+
+section.profissional .device-container {
+  margin-bottom: 100px;
+}
+
+@media (min-width: 992px) {
+  section.profissional .device-container {
+    margin-bottom: 0;
+  }
+}
+
+section.profissional .profissional-item {
   padding-top: 50px;
   padding-bottom: 50px;
   text-align: center;
 }
 
-section.features .feature-item h3 {
+section.profissional .profissional-item h3 {
   font-size: 30px;
 }
 
-section.features .feature-item i {
+section.profissional .profissional-item i {
   font-size: 80px;
   display: block;
   margin-bottom: 15px;
@@ -329,6 +397,7 @@ section.contact {
 section.contact h2 {
   margin-top: 0;
   margin-bottom: 25px;
+  color: white;
 }
 
 section.contact h2 i {
@@ -390,11 +459,11 @@ section.contact ul.list-social li.social-whatsapp a:hover {
 }
 
 section.contact ul.list-social li.social-github a {
-  background-color: #24292D;
+  background-color: #9B43A8;
 }
 
 section.contact ul.list-social li.social-github a:hover {
-  background-color: #505B64;
+  background-color: #C33ED7;
 }
 
 
@@ -424,17 +493,22 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   text-decoration: none;
 }
 
-.bg-primary {
-  background: #fdcc52;
-  background: -webkit-linear-gradient(#fdcc52, #fdc539);
-  background: linear-gradient(#fdcc52, #fdc539);
+.bg-sobremim {
+  background: #000000;
+  background: -webkit-linear-gradient(#000000, #64625B);
+  background: linear-gradient(#000000, #64625B);
 }
 
+.bg-primary {
+  background: #fcbd20;
+  background: -webkit-linear-gradient(#fcbd20, #64625B);
+  background: linear-gradient(#fcbd20, #64625B);
+}
 
 .bg-contato {
-  background: #100F04;
-  background: -webkit-linear-gradient(#100F04, 	#4E4F4A);
-  background: linear-gradient(#100F04, 	#4E4F4A);
+  background: #100F0D;
+  background: -webkit-linear-gradient(#100F0D, 	#4E4F4A);
+  background: linear-gradient(#100F0D, 	#4E4F4A);
 }
 
 .text-primary {
