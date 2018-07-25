@@ -39,12 +39,14 @@ function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoW
     +"                  </span>"
     +"              </span>"
     +"          </small>"
+/*
     +"          <div>"
     +"              <p style='font-size: 12px'>"
     +"                  Updated "
     +                   repoUpdated_at
     +"              </p>"
     +"          </div>"
+*/
     +"          <div>"
     +"              <a href='" + repoUrl + "'>Acessar Repositório</a>"
     +"          </div>"
