@@ -1,63 +1,83 @@
 var divRepositoriosDeck = $("#repoCardDeck");
 var str = "";
 
-function createRepoCard(repoName, repoDesc, repoUrl){
+function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoWatchers, repoLanguage) {
     str +=
-	
-	+"<div class='col-lg-4 my-auto'>"
-    +"        <div class='device-container'>"
-    +"          <div class='device-mockup iphone6_plus portrait white'>"
-    +"            <div class='device'>"
-    +"              <div class='screen'>"
-	+"				<div class='card' style='height: 520px'>"
-	+"						<div class='card-header card bg-dark text-white'>"
-	+							repoName
-	+"						</div>"
-	+"						<div class='card-body card bg-dark text-white'>"
-	+"							<p class='card-text'>"
-	+							repoDesc
-	+"							</p>"
-	+"						</div>"
-	+"						<div class='card-footer card text-white bg-dark mb-3' >"
-	+"							<a href='" + repoUrl + "' class='btn btn-default'>"
-	+"							Acessar repositório"
-	+"							</a>"
-	+"						</div>"
-	+"				</div>"
-    +"             </div>"
-    +"              <div class='button'>"
-    +"              </div>"
-    +"            </div>"
-    +"          </div>"
-    +"        </div>"
-    +"      </div>";
+
+    "    <div class='card text-center'>"
+    + "        <div class='card-header'>"
+    + repoName
+    + "                </div>"
+    + "        <div class='card-body'>"
+    + "            <p style='font-size: 12px'>" + repoDesc +"</p>"
+    
+    + "<small class='text-muted' style='center'>"
+    + "Linguagem: " + repoLanguage
+    + "       </small>"
+
+    
+    + "        </div>"
+    + "        <div class='card-footer text-muted'>"
+
+
+    + "<small class='text-muted' style='center'>"
+
+    + "          <span class='fa fa-1x fa-star mb-3 sr-icons' style='margin:5px;'>"
+    + "              <span style='margin:3px;'>"
+    +                   repoStars 
+    + "              </span>"
+    + "          </span>"
+    + "         <span class='fa fa-1x fa-eye mb-3 sr-icons' style='margin:5px;'>"
+    + "             <span style='margin:3px;'>"
+    +                repoWatchers 
+    + "              </span>"
+    + "         </span>"
+    + "         <span class='fa fa-1x fa-code-fork mb-3 sr-icons' style='margin:5px;'>"
+    + "             <span style='margin:3px;'>"
+    +                repoForks
+    + "              </span>"
+    + "         </span>"
+    + "       </small>"
+    +" <div>"
+    + "            <a href='" + repoUrl + "'>Acessar Repositório</a>"
++"</div>"
+
+
+    
+    + "                </div>"
+    + "    </div>";
 }
 
 
-$(document).ready(function(){
-       $.get( "https://api.github.com/users/marcelocezario/repos", function(data) {        
-    
+$(document).ready(function () {
+    $.get("https://api.github.com/users/marcelocezario/repos", function (data) {
+
         console.log(data);
 
         //Criando os cartoes dos repositorios
         var i = 1;
-        str +="<div class='row'>";
-        
+        str += "<div class='row'>";
+
         data.forEach(repo => {
             console.log(
-                repo.name 
-                + ", Descrição: " + repo.description 
-            if(i%3 == 0){
-                createRepoCard(repo.name, repo.description, repo.html_url);
-                str +="</div>";
-                str +="<div class='row'>";
+                repo.name
+                + ", Descrição: " + repo.description
+                + ", Forks: " + repo.forks_count
+                + ", Stars: " + repo.stargazers_count
+                + ", Watchers: " + repo.watchers_count
+                + ", Language: " + repo.language);
+            if (i % 3 == 0) {
+                createRepoCard(repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language);
+                str += "</div>";
+                str += "</p>";
+                str += "<div class='row'>";
             }
-            else{
-                createRepoCard(repo.name, repo.description, repo.html_url);
+            else {
+                createRepoCard(repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language);
             }
             i++;
         });
-        str +="</div>";
+        str += "</div>";
         divRepositoriosDeck.append(str);
     });
 });
