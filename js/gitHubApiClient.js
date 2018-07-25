@@ -1,12 +1,14 @@
 var divRepositoriosDeck = $("#repoCardDeck");
 var str = "";
 
-function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoWatchers, repoLanguage) {
+function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoWatchers, repoLanguage, repoUpdated_at) {
     str +=
 
-    "    <div class='card text-center'>"
-    + "        <div class='card-header'>"
-    + repoName
+    "<div class='col-sm-4 d-flex p-2 bd-highlight'>"
+
+    + "<div class='card text-center'>"
+    + "<div class='card-header'>"
+    +               repoName
     + "                </div>"
     + "        <div class='card-body'>"
     + "            <p style='font-size: 12px'>" + repoDesc +"</p>"
@@ -19,9 +21,7 @@ function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoW
     + "        </div>"
     + "        <div class='card-footer text-muted'>"
 
-
     + "<small class='text-muted' style='center'>"
-
     + "          <span class='fa fa-1x fa-star mb-3 sr-icons' style='margin:5px;'>"
     + "              <span style='margin:3px;'>"
     +                   repoStars 
@@ -38,6 +38,22 @@ function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoW
     + "              </span>"
     + "         </span>"
     + "       </small>"
+    + "<div>"
+    + "<p style='font-size: 12px'>"
+    + "Updated "
++"<local-time datetime='" + repoUpdated_at
++"    month='short'"
++"    day='numeric'"
++"    year='numeric'"
++"    hour='numeric'"
++"    minute='numeric'>"
++ repoUpdated_at
++ "</local-time>"
+
+
+
+    +"</p>"
+    + "</div>"
     +" <div>"
     + "            <a href='" + repoUrl + "'>Acessar Repositório</a>"
 +"</div>"
@@ -45,7 +61,8 @@ function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoW
 
     
     + "                </div>"
-    + "    </div>";
+    + "    </div>"
+    +"</div>";
 }
 
 
@@ -65,15 +82,16 @@ $(document).ready(function () {
                 + ", Forks: " + repo.forks_count
                 + ", Stars: " + repo.stargazers_count
                 + ", Watchers: " + repo.watchers_count
-                + ", Language: " + repo.language);
+                + ", Language: " + repo.language
+                + ", Update: " + repo.updated_at);
             if (i % 3 == 0) {
-                createRepoCard(repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language);
+                createRepoCard(repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language, repo.updated_at);
                 str += "</div>";
                 str += "</p>";
                 str += "<div class='row'>";
             }
             else {
-                createRepoCard(repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language);
+                createRepoCard(repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language, repo.updated_at);
             }
             i++;
         });
@@ -81,3 +99,6 @@ $(document).ready(function () {
         divRepositoriosDeck.append(str);
     });
 });
+
+
+//<relative-time datetime="2018-07-25T00:10:00Z" title="24 de jul de 2018 21:10 BRT">26 minutes ago</relative-time>
