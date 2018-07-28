@@ -1,7 +1,7 @@
 var divRepositoriosDeck = $("#repoCardDeck");
 var str = "";
 
-function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoWatchers, repoLanguage, repoUpdated_at, repoHomepage) {
+function createRepoCard(repoUpdated_at, repoName, repoDesc, repoUrl, repoForks, repoStars, repoWatchers, repoLanguage, repoHomepage) {
     str +=
 
     "<div class='col-sm-4 d-flex p-2 bd-highlight'>"
@@ -39,14 +39,14 @@ function createRepoCard(repoName, repoDesc, repoUrl, repoForks, repoStars, repoW
     +"                  </span>"
     +"              </span>"
     +"          </small>"
-/*
+
     +"          <div>"
     +"              <p style='font-size: 12px'>"
     +"                  Updated "
     +                   repoUpdated_at
     +"              </p>"
     +"          </div>"
-*/
+
     +"          <div>"
     +"              <a href='" + repoUrl + "'>Acessar Repositório</a>"
     +"          </div>"
@@ -66,24 +66,30 @@ $(document).ready(function () {
         var i = 1;
         str += "<div class='row'>";
 
+        data.sort(function (a, b){
+            return (a.updated_at < b.updated_at) ? 1 : ((b.updated_at < a.updated_at) ? -1 : 0);
+        });
+
+
+
         data.forEach(repo => {
-            console.log(
-                repo.name
+                console.log(
+                "Name: " + repo.name
+                + ", Update: " + repo.updated_at
                 + ", Descrição: " + repo.description
                 + ", Forks: " + repo.forks_count
                 + ", Stars: " + repo.stargazers_count
                 + ", Watchers: " + repo.watchers_count
                 + ", Language: " + repo.language
-                + ", Update: " + repo.updated_at
                 + ", Homepage: " + repo.homepage);
             if (i % 3 == 0) {
-                createRepoCard(repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language, repo.updated_at, repo.homepage);
+                createRepoCard(repo.updated_at, repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language, repo.homepage);
                 str += "</div>";
                 str += "</p>";
                 str += "<div class='row'>";
             }
             else {
-                createRepoCard(repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language, repo.updated_at, repo.homepage);
+                createRepoCard(repo.updated_at, repo.name, repo.description, repo.html_url, repo.forks_count, repo.stargazers_count, repo.watchers_count, repo.language, repo.homepage);
             }
             i++;
         });
