@@ -266,6 +266,28 @@ section.sobremim .section-item p {
   color: white;
 }
 
+section.sobremim .section-heading p {
+  margin-bottom: 0;
+}
+
+
+section.sobremim .device-container,
+section.sobremim .sobremim-item {
+  max-width: 325px;
+  margin: 0 auto;
+}
+
+section.sobremim .device-container {
+  margin-bottom: 100px;
+}
+
+@media (min-width: 992px) {
+  section.sobremim .device-container {
+    margin-bottom: 0;
+  }
+}
+
+
 
 section.repositorios {
   position: relative;
